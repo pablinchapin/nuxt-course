@@ -1,0 +1,20 @@
+{
+  "name": "nuxt-app-02-vos",
+  "version": "1.0.0",
+  "description": "nuxt.js project 2",
+  "author": "pablinchapin",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
