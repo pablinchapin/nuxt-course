@@ -1,6 +1,8 @@
 <template>
 
   <div class="posts-page">
+
+    <PostList />    
     
   </div>
   
@@ -8,7 +10,14 @@
 
 
 <script>
+
+import PostList from '@/components/Posts/PostList'
+
 export default {
+
+  components : {
+    PostList
+  }
   
 }
 </script>
