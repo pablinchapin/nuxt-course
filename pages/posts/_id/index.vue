@@ -2,12 +2,12 @@
 
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Last updated on XXXX</div>
-        <div class="post-detail">Written by XXXX</div>
+        <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>
+        <div class="post-detail">Written by {{ loadedPost.author }}</div>
       </div>
-      <p class="post-content">Content of the post</p>
+      <p class="post-content">{{ loadedPost.content }}</p>
     </section>
 
     <section class="post-feedback">
@@ -19,6 +19,22 @@
 
 <script>
 export default {
+
+  asyncData(context, callback){
+    setTimeout(() => {
+      callback(null, {
+        loadedPost : {
+          id:4,
+          thumbnail:"https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg",
+          title:"Title 4 (ID: "+ context.route.params.id +")",
+          textPreview:"Text preview 4",
+          author : "Don PC",
+          updatedDate : new Date(),
+          content : "Some dummy text ..., Some dummy text ..., Some dummy text ..., Some dummy text ..., Some dummy text ..."
+        }
+      })
+    },1000)
+  }
   
 }
 </script>

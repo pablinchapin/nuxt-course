@@ -2,25 +2,16 @@
 
   <section class="posts-list">
     <PostPreview 
-      :id="1"
-      thumbnail="https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg"
-      title="Title 1"
-      textPreview="Text preview 1"
+      v-for="post in posts"
+      :key="post.id"
+
+      :id="post.id"
+      :isAdmin="isAdmin"
+      :thumbnail="post.thumbnail"
+      :title="post.title"
+      :textPreview="post.textPreview"
     />
 
-    <PostPreview 
-      :id="2"
-      thumbnail="https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg"
-      title="Title 2"
-      textPreview="Text preview 2"
-    />
-
-    <PostPreview 
-      :id="3"
-      thumbnail="https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg"
-      title="Title 3"
-      textPreview="Text preview 3"
-    />
   </section>
   
 </template>
@@ -34,6 +25,16 @@ export default {
 
   components : {
     PostPreview
+  },
+  props: {
+    isAdmin : {
+      type : Boolean,
+      default : false
+    },
+    posts : {
+      type : Array,
+      required : true
+    }
   }
   
 }

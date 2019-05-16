@@ -5,7 +5,7 @@
       <h1>Get the latest tech news!</h1>
     </section>
 
-    <PostList />
+    <PostList :posts="this.loadedPosts" />
   
   </div>
 </template>
@@ -13,11 +13,94 @@
 <script>
 
 import PostList from '@/components/Posts/PostList'
+import { Promise } from 'q';
 
 export default {
   components : {
     PostList
+  },
+  data(){
+    /*
+    return {
+      loadedPosts : []      
+    }
+    */
+    
+  },
+  asyncData(context, callback){
+
+    console.warn('asyncData executed!')
+
+    setTimeout(() => {
+
+      callback(null,  
+      {
+        loadedPosts : 
+      [
+          {
+            id:1,
+            isAdmin:"isAdmin",
+            thumbnail:"https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg",
+            title:"Title 1",
+            textPreview:"Text preview 1",
+          },
+          {
+            id:2,
+            isAdmin:"isAdmin",
+            thumbnail:"https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg",
+            title:"Title 2",
+            textPreview:"Text preview 3",
+          },
+          {
+            id:3,
+            isAdmin:"isAdmin",
+            thumbnail:"https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg",
+            title:"Title 3",
+            textPreview:"Text preview 3",
+          }
+      ]
+      })
+
+
+    },1000)
+
+    
+  },
+  created(){
+    /*
+    setTimeout(() => {
+
+      this.loadedPosts = 
+      [
+          {
+            id:1,
+            isAdmin:"isAdmin",
+            thumbnail:"https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg",
+            title:"Title 1",
+            textPreview:"Text preview 1",
+          },
+          {
+            id:2,
+            isAdmin:"isAdmin",
+            thumbnail:"https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg",
+            title:"Title 2",
+            textPreview:"Text preview 3",
+          },
+          {
+            id:3,
+            isAdmin:"isAdmin",
+            thumbnail:"https://www.homage.sg/wp-content/uploads/2018/09/47724337_l-1080x675.jpg",
+            title:"Title 3",
+            textPreview:"Text preview 3",
+          }
+      ]
+
+
+
+    },1000)
+    */
   }
+
   
 }
 </script>
